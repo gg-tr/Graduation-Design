@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 import datetime
 
 
@@ -31,13 +31,13 @@ def getMovieTimeData():
     }]
     for i in movieTime:
         i = i[2:-2]
-        if len(i) > 1 and int(i) <= 60:
+        if len(i) > 1 and int(i) <= 80:
             movieTimeDate[0]['value'] = movieTimeDate[0]['value'] + 1; 
-        elif len(i) > 1 and int(i) <= 120:
+        elif len(i) > 1 and int(i) <= 120 and int(i) >=80:
             movieTimeDate[1]['value'] = movieTimeDate[1]['value'] + 1;
-        elif len(i) > 1 and int(i) <= 150:
+        elif len(i) > 1 and int(i) <= 150 and int(i) >=120:
             movieTimeDate[2]['value'] = movieTimeDate[2]['value'] + 1;
-        elif len(i) > 1:
+        elif len(i) > 1 and int(i) >=150:
             movieTimeDate[3]['value'] = movieTimeDate[3]['value'] + 1;
         else:
             pass

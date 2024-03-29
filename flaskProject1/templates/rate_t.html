@@ -42,7 +42,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>首页</span></a>
@@ -59,12 +59,12 @@
         <div class="sidebar-heading">
             数据表
         </div>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/time_t">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>时间分析表</span></a>
         </li>
-       <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="/rate_t/all">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>评分分析表</span></a>
@@ -200,15 +200,37 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">时间分析表</h1>
+                    <h1 class="h3 mb-0 text-gray-800">评分分析表</h1>
                 </div>
                 <div class="row">
-                    <!-- Area Chart -->
+                    <div class="card mb-4">
+                        <div class="card-body" style="align-items: center">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                {% if type == 'all' %}
+                                    <a href="/rate_t/all" class="btn btn-secondary active">全部</a>
+                                {% else %}
+                                    <a href="/rate_t/all" class="btn btn-secondary active">全部</a>
+                                {% endif %}
+                                {% for i in typeList %}
+                                    {% if type ==i %}
+                                        <a href="/rate_t/{{ i }}" class="active btn btn-secondary">{{ i }}</a>
+                                    {% else %}
+                                        <a href="/rate_t/{{ i }}" class="btn btn-secondary">{{ i }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Content Row -->
+
+                <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">历年产量数据</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">豆瓣评分星级饼状图</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -217,158 +239,221 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
-                    <!-- Area Chart -->
-                    <div class="col-xl-12 col-lg-12">
+                    <div class="col-xl-6 col-lg-6">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">电影数据时长占比</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">豆瓣年度评价评分柱状图</h6>
                             </div>
-                            <!-- Card Body -->
+                            <div class="card-body">
+                                <form style="margin-top: 15px" method="post" action="/rate_t/all" class="form-inline">
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="inputPassword2" class="sr-only"></label>
+                                        <input name="searchIpt" type="text" class="form-control" id="inputPassword2"
+                                               placeholder="请输入电影名关键字">
+                                    </div>
+                                    <button type="submit" style="margin-left: 15px" class="btn btn-primary mb-2">搜索
+                                    </button>
+                                </form>
+                            </div>
+                            <hr>
                             <div class="card-body">
                                 <div id="mains" style="width: 100%;height: 450px"></div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <br>
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">电影评分折线图</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div id="mainss" style="width: 100%;height: 450px"></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-        </div>
-        <!-- End of Main Content -->
+                <!-- Content Row -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>豆瓣电影数据可视化分析<a target="_blank" href="">Flask + Mysql + Echarts</a></span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
 
-    </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">确定退出?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
-                <a class="btn btn-primary" href="/loginOut">退出</a>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>豆瓣电影数据可视化分析<a target="_blank" href="">Flask + Mysql + Echarts</a></span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
             </div>
         </div>
-    </div>
-</div>
+        <!-- End of Page Wrapper -->
 
-<!-- Bootstrap core JavaScript-->
-<script src="/static/vendor/jquery/jquery.min.js"></script>
-<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-<!-- Core plugin JavaScript-->
-<script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">确定退出?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+                        <a class="btn btn-primary" href="/loginOut">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- Custom scripts for all pages-->
-<script src="/static/js/sb-admin-2.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/static/vendor/jquery/jquery.min.js"></script>
+        <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="/static/vendor/chart.js/Chart.min.js"></script>
-<script src="/static/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="/static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="/static/js/demo/datatables-demo.js"></script>
-<!-- Page level custom scripts -->
-<script src="/static/js/demo/chart-area-demo.js"></script>
-<script src="/static/js/demo/chart-pie-demo.js"></script>
-<script src="/static/js/echarts.js"></script>
-<script>
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option;
+        <!-- Custom scripts for all pages-->
+        <script src="/static/js/sb-admin-2.min.js"></script>
 
-    option = {
-        xAxis: {
-            type: 'category',
-            data: {{ row }}
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: {{ columns }},
-                type: 'line'
-            }
-        ]
-    };
+        <!-- Page level plugins -->
+        <script src="/static/vendor/chart.js/Chart.min.js"></script>
+        <script src="/static/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="/static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    option && myChart.setOption(option);
+        <!-- Page level custom scripts -->
+        <script src="/static/js/demo/datatables-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="/static/js/demo/chart-area-demo.js"></script>
+        <script src="/static/js/demo/chart-pie-demo.js"></script>
+        <script src="/static/js/echarts.js"></script>
 
-</script>
+        <script>
 
-<script>
-    var chartDom = document.getElementById('mains');
-    var myChart = echarts.init(chartDom);
-    var option;
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
 
-    option = {
-        title: {
-            text: '电影数据时长分布占比',
-            subtext: '数据字段来源于movieTime',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left'
-        },
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                radius: '50%',
-                label:{
-                    normal:{
-                        show:true,
-                        formatter:'{b}:{c} 个({d}%)'
+            option = {
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: {{row}}
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        data: {{ columns }},
+                        type: 'line',
+                        itemStyle: {
+                            // 修改柱状图颜色
+                            color: 'blue'
+                        },
+                        areaStyle: {}
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+        </script>
+        <script>
+            var chartDom = document.getElementById('mains');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                title: {
+                    text: '{{ searchName }}电影星级占比图',
+                    subtext: '数据来源于rate',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left'
+                },
+                series: [
+                    {
+                        name: '星级占比',
+                        type: 'pie',
+                        radius: '50%',
+                        data:{{ startDate | tojson }},
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+
+        </script>
+        <script>
+            var chartDom = document.getElementById('mainss');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
                     }
                 },
-                data: {{ movieTimeDatta | tojson }},
-
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: {{ yearMenRow }},
+                        axisTick: {
+                            alignWithLabel: true
+                        }
                     }
-                }
-            }
-        ]
-    };
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: 'Direct',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: {{ yearMenColumn }}
+                    }
+                ]
+            };
 
-    option && myChart.setOption(option);
+            option && myChart.setOption(option);
 
-</script>
+        </script>
 </body>
 
 </html>

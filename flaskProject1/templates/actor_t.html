@@ -59,15 +59,30 @@
         <div class="sidebar-heading">
             数据表
         </div>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/time_t">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>时间分析表</span></a>
         </li>
-       <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="/rate_t/all">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>评分分析表</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/map_t">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>地图分析表</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/type_t">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>类型分析表</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/actor_t">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>演员与导演分析表</span></a>
         </li>
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
@@ -200,31 +215,36 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">时间分析表</h1>
+                    <h1 class="h3 mb-0 text-gray-800">首页</h1>
                 </div>
+
+
+                <!-- Content Row -->
+
                 <div class="row">
+
                     <!-- Area Chart -->
                     <div class="col-xl-12 col-lg-12">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">历年产量数据</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">导演作品数量前20</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
+
                                 <div id="main" style="width: 100%;height: 450px"></div>
+
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <!-- Area Chart -->
+                    <!-- Pie Chart -->
                     <div class="col-xl-12 col-lg-12">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">电影数据时长占比</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">演员作品数量前20</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -233,142 +253,160 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Content Row -->
+                <div class="row">
+
+                    <!-- Content Column -->
+                    <div class="col-lg-6 mb-4">
+
+
+                    </div>
+
+                </div>
+
             </div>
+            <!-- /.container-fluid -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+
+
+                <!-- DataTales Example -->
+
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>豆瓣电影数据可视化分析<a target="_blank" href="">Flask + Mysql + Echarts</a></span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Page Wrapper -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>豆瓣电影数据可视化分析<a target="_blank" href="">Flask + Mysql + Echarts</a></span>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">确定退出?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+                        <a class="btn btn-primary" href="/loginOut">退出</a>
+                    </div>
                 </div>
             </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">确定退出?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
-                <a class="btn btn-primary" href="/loginOut">退出</a>
-            </div>
         </div>
-    </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="/static/vendor/jquery/jquery.min.js"></script>
-<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/static/vendor/jquery/jquery.min.js"></script>
+        <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="/static/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/static/js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="/static/vendor/chart.js/Chart.min.js"></script>
-<script src="/static/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="/static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="/static/vendor/chart.js/Chart.min.js"></script>
+        <script src="/static/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="/static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="/static/js/demo/datatables-demo.js"></script>
-<!-- Page level custom scripts -->
-<script src="/static/js/demo/chart-area-demo.js"></script>
-<script src="/static/js/demo/chart-pie-demo.js"></script>
-<script src="/static/js/echarts.js"></script>
-<script>
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option;
+        <!-- Page level custom scripts -->
+        <script src="/static/js/demo/datatables-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="/static/js/demo/chart-area-demo.js"></script>
+        <script src="/static/js/demo/chart-pie-demo.js"></script>
+        <script src="/static/js/echarts.js"></script>
+        <script>
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
 
-    option = {
-        xAxis: {
-            type: 'category',
-            data: {{ row }}
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: {{ columns }},
-                type: 'line'
-            }
-        ]
-    };
-
-    option && myChart.setOption(option);
-
-</script>
-
-<script>
-    var chartDom = document.getElementById('mains');
-    var myChart = echarts.init(chartDom);
-    var option;
-
-    option = {
-        title: {
-            text: '电影数据时长分布占比',
-            subtext: '数据字段来源于movieTime',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left'
-        },
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                radius: '50%',
-                label:{
-                    normal:{
-                        show:true,
-                        formatter:'{b}:{c} 个({d}%)'
+            option = {
+                title: {
+                    text: 'World Population'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
                     }
                 },
-                data: {{ movieTimeDatta | tojson }},
+                legend: {},
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data:{{ row|tojson }}
+                },
+                series: [
+                    {
+                        name: '导演所导出的电影个数',
+                        type: 'bar',
+                        data: {{ columns }}
+                    },
+                ]
+            };
 
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            option && myChart.setOption(option);
+
+        </script>
+        <script>
+            var chartDom = document.getElementById('mains');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                xAxis: {
+                    type: 'category',
+                    data: {{ row1|tojson }}
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                series: [
+                    {
+                        data: {{ columns1 }},
+                        type: 'line',
+                        smooth: true
                     }
-                }
-            }
-        ]
-    };
+                ]
+            };
 
-    option && myChart.setOption(option);
+            option && myChart.setOption(option);
 
-</script>
+        </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 from pymysql import *
-conn =connect(host='localhost',user='root',password='chen',database='dbm',port=3306)
+conn =connect(host='localhost',user='root',password='chen',database='dbm',port=3306,charset='utf8mb4')
 cursor = conn.cursor()
 
 def querys(sql,params,type='no_select'):

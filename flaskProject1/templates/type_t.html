@@ -42,7 +42,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>首页</span></a>
@@ -74,15 +74,10 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>地图分析表</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/type_t">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>类型分析表</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/actor_t">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>演员与导演分析表</span></a>
         </li>
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
@@ -219,117 +214,18 @@
                 </div>
 
                 <!-- Content Row -->
-                <div class="row">
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            电影个数
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maxMovieLen }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            豆瓣最高评分
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maxRate }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                            出场最多的演员
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{ maxCasts }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            制片国家最多数
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maxCountry }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-danger shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                            电影种类数
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maxType }}</div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 mb-4">
-                        <div class="card border-left-dark shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                            电影语言最多数
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ maxlang }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Content Row -->
 
                 <div class="row">
 
                     <!-- Area Chart -->
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-12 col-lg-12">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">电影种类饼状图</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">电影类型环形图</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -341,30 +237,10 @@
                     </div>
 
                     <!-- Pie Chart -->
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">电影评分折线图</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div id="mains" style="width: 100%;height: 450px"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Content Row -->
-                <div class="row">
 
-                    <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-
-
-                    </div>
-
-                </div>
 
             </div>
             <!-- /.container-fluid -->
@@ -374,60 +250,7 @@
 
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">数据统计表</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr style="font-size: 15px">
-                                    <th>ID</th>
-                                    <th>电影名</th>
-                                    <th>图片</th>
-                                    <th>评分</th>
-                                    <th>导演</th>
-                                    <th>演员</th>
-                                    <th>语言</th>
-                                    <th>片场</th>
-                                    <th>上映时间</th>
-                                    <th>电影类型</th>
-                                    <th>制片国家</th>
-                                    <th>短评数量</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for item in tableData %}
-                                    <tr>
-                                        <td>{{ item[0] }}</td>
-                                        <td style="width: 10px;text-decoration: underline">
-                                            <a style="color: #000" href="/search/{{ item[0] }}">
-                                                {{ item[3] }}
-                                            </a>
-                                        </td>
-                                        <td style="text-align: center;width: 150px">
-                                            <a target="_blank" href="{{ item[6] }}">
-                                                <img style="width: 75%;object-fit:cover;height:150px"
-                                                     src="{{ item[4] }}" alt="">
-                                            </a>
-                                        </td>
-                                        <td><span class="text-primary">{{ item[2] }}分</span></td>
-                                        <td>{{ item[1] }}</td>
-                                        <td>{{ item[5] }}</td>
-                                        <td>{{ item[9] }}</td>
-                                        <td>{{ item[11] }}</td>
-                                        <td>{{ item[10] }}</td>
-                                        <td>{{ item[7] }}</td>
-                                        <td>{{ item[8] }}</td>
-                                        <td>{{ item[2] }}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>
@@ -494,37 +317,41 @@
 <script src="/static/js/demo/chart-area-demo.js"></script>
 <script src="/static/js/demo/chart-pie-demo.js"></script>
 <script src="/static/js/echarts.js"></script>
+
 <script>
     var chartDom = document.getElementById('main');
     var myChart = echarts.init(chartDom);
     var option;
 
     option = {
-        title: {
-            text: '电影种类饼状图',
-            subtext: '数据来源于字段types',
-            left: 'center'
-        },
         tooltip: {
             trigger: 'item'
         },
         legend: {
-            orient: 'vertical',
-            left: 'left'
+            top: '5%',
+            left: 'center'
         },
         series: [
             {
-                name: '种类个数',
+                name: '类型种类个数',
                 type: 'pie',
-                radius: '40%',
-                data:{{ typeEchartData | tojson }},
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
                 emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    label: {
+                        show: true,
+                        fontSize: 20,
+                        fontWeight: 'bold'
                     }
-                }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: {{ typesData|tojson }}
             }
         ]
     };
@@ -533,44 +360,6 @@
 
 </script>
 
-<script>
-    var chartDoms = document.getElementById('mains');
-    var myCharts = echarts.init(chartDoms);
-    var options;
-
-    options = {
-        title: {
-            text: '电影评分折线图',
-            subtext: '数据来源于字段Rate',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left'
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data:{{ row }}
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: {{ columns }},
-                type: 'line',
-                areaStyle: {}
-            }
-        ]
-    };
-
-    options && myCharts.setOption(options);
-
-</script>
 </body>
 
 </html>
